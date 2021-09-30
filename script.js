@@ -22,6 +22,9 @@ let myLibrary = [{
     status: 'completed',
 }]
 
+getLocal()
+
+
 displayBooks()
 function displayBooks() {
     libraryDisplay.innerHTML = ''
@@ -68,7 +71,6 @@ function editCard(target){
     let pages = obj.pages
 
     bookForm.style.display = 'flex'
-    console.log(title, authour, pages)
 
     document.querySelector('span').textContent = index
     document.getElementById('title').value = title
@@ -81,12 +83,14 @@ function saveUpdate(title, authour, pages, status, index) {
     const updatedLibrary = { ...myLibrary[index], title: title, authour:authour, pages: pages, status: status};
     myLibrary[index] = updatedLibrary
     displayBooks()
+    setLocal()
 }
 
 function removeBook(target) {
     let index = myLibrary.findIndex(x => x.title === target)
     myLibrary.splice(index, 1)
     displayBooks()
+    setLocal()
 }
 
 function Book(title, authour, pages, status) {
@@ -100,7 +104,8 @@ function addBookToLibrary(title, authour, pages, status) {
     bookForm.style.display = 'none'
     createDisplayCards(title, authour, pages, status)
     myLibrary.push(new Book(title, authour, pages, status))
-    console.table(myLibrary)
+    setLocal()
+    // console.table(myLibrary)
 }
 
 function collectBookInfo() {
@@ -122,3 +127,26 @@ function displayFrom() {
     bookForm.style.display === 'flex' ? bookForm.style.display = 'none' : bookForm.style.display = 'flex'
     document.getElementById('book-info').textContent = 'Submit' 
 }
+
+function setLocal() {
+    localStorage.setItem('MyLibrary', JSON.stringify(myLibrary))
+}
+function getLocal() {
+    myLibrary = JSON.parse(localStorage.getItem('MyLibrary'))
+    // console.table(myLibrary)
+}
+
+
+
+// import { initializeApp } from 'firebase/app';
+// import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+// // Follow this pattern to import other Firebase services
+// // import { } from 'firebase/<service>';
+
+// // TODO: Replace the following with your app's Firebase project configuration
+// const firebaseConfig = {
+//   //...
+// };
+
+// const app = initializeApp(firebaseConfig);
+// const db = getFirestore(app);
