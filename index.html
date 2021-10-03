@@ -1,85 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-
     <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/a690d13842.js" crossorigin="anonymous"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <script>
-        function onSignIn(googleUser) {
-            // Useful data for your client-side scripts:
-            var profile = googleUser.getBasicProfile();
-            console.log('Image URL: ' + profile.getImageUrl());
+    
+    <h1>My Library</h1>
 
-            // The ID token you need to pass to your backend:
-            var id_token = googleUser.getAuthResponse().id_token;
-            console.log("ID Token: " + id_token);
-        }
-    </script>
+    <div class="middle">
+        
+        <div class="side-bar">
+            <div class="library-info">
+                <p>Total Books: <span id="book-count"></span></p>
+                <p>Completed: <span id="book-complete"></span></p>
+                <p>Want To Read: <span id="book-want"></span></p>
+                <p>On Hold: <span id="book-hold"></span></p>
+                <p>Droped: <span id="book-drop"></span></p>
+            </div>
+            <footer class="diveloper">
+                <a href="https://github.com/MohamedMaaiz" target="_blank"><i class="fab fa-github"></i> Mohamed Maaiz</a>
+                <a href="https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/library" target="_blank">Project from The Odin Project</a>
+            </footer>
+        </div>
+    
+        <form>
+            <h3>Book Details</h3>
+            <p class="valid-text"></p>
+            <span></span>
+            <div>
+                <label for="title">Title</label>
+                <input id="title" name="title" type="text" value="book3">
+            </div>
+            <div>
+                <label for="title">Authour</label>
+                <input id="authour" name="authour" type="text" value="authour3">
+            </div>
+            <div class="inline">
+                <label for="title">Page</label>
+                <input id="page" name="page" type="text" value="3">
+            </div>
+            <div class="inline">
+                <label for="status">Status</label>
+                <select id="status" name="status">
+                    <option>Want To Read</option>
+                    <option>Completed</option>
+                    <option>On Hold</option>
+                    <option>Droped</option>
+                </select>
+            </div>
+            <button id="book-info" type="button">Submit</button>
+        </form>
 
-    <a href="#" onclick="signOut();">Sign out</a>
-    <script>
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-            console.log('User signed out.');
-            });
-        }
-    </script>
-
-
-
-
-
-    <button id="add-book" type="button">+</button>
-
-    <form>
-        <p>Book Name</p>
-        <span></span>
-        <input id="title" type="text" value="book3">
-        <input id="authour" type="text" value="authour3">
-        <input id="page" type="text" value="3">
-        <select id="status">
-            <option>Want To Read</option>
-            <option>Completed</option>
-            <option>On Hold</option>
-            <option>Droped</option>
-        </select>
-        <button id="book-info" type="button">Submit</button>
-    </form>
-
-    <div id="library-display">
+        
+        <div id="library-display"></div>
+        
+        <button id="add-book" type="button"><span>+</span></button>
+        
+        
 
     </div>
+    
+    <div id="blur"></div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-analytics.js"></script>
-    <script type="module">
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyDAWWI0o2FI2sMAW404CBwBsswfv4eaNKs",
-          authDomain: "library-60b69.firebaseapp.com",
-          projectId: "library-60b69",
-          storageBucket: "library-60b69.appspot.com",
-          messagingSenderId: "252320089691",
-          appId: "1:252320089691:web:b178196e2c217c3c9e617e",
-          measurementId: "G-1JJFGPL2Z9"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-    </script>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </body>

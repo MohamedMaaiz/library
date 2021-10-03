@@ -1,34 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Noto+Sans&family=Noto+Serif&display=swap');
+
 body {
     display: flex;
-    height: 100vh;
     flex-direction: column;
-    position: relative;
+    margin: 0;
+    background-color: #1e1e1e;
+    font-family: 'Noto Serif', serif;
 }
 
-#library-display div{
-    background-color: aquamarine;
+h1 {
+    background-color: #141414;
+    color: #cacaca;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 50px;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 35px;
+}
+
+.middle {
+    display: flex;
+    height: auto;
+    margin-top: 137px;
+}
+
+.side-bar {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 137px;
+    bottom: 0;
+    width: 300px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.library-info {
+    display: flex;
+    flex-direction: column;
+    color: #b6b6b6;
+    width: 200px;
+    margin-top: 30px;
+    font-size: 20px;
+}
+.library-info p:first-child {
+    margin-bottom: 50px;
+}
+
+.library-info p {
+    display: flex;
+    justify-content: space-between;
+}
+
+#library-display {
+    font-family: 'Noto Sans', sans-serif;
+    display: flex;
+    margin-left: 300px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+#library-display div {
+    background-color: #202020;
+    box-shadow: 4px 4px 8px 3px #000000, -5px -5px 10px 4px #373737b0;
+    color: #cacaca;
+    margin: 40px 30px;
+    width: 200px;
+    height: 260px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#library-display div p {
+    margin: 0;
+    margin-left: 10px;
+}
+
+#library-display div div {
+    /* background-color: red; */
+    box-shadow: none;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+}
+
+#library-display #add-book {
+    background-color: #313131bb;
+    border: none;
+    box-shadow: 4px 4px 8px 3px #000000, -5px -5px 10px 4px #373737b0;
+    color: #cacaca;
+    order: 1;
+    margin: 40px 30px;
+    width: 200px;
+    height: 260px;
+    border-radius: 10px;
+    font-size: 150px;
+    cursor: pointer;
+    
+}
+
+#library-display #add-book span {
+    display: inline-block;
+    width: 190px;
+    transition: 1s 0s;
+}
+
+#library-display #add-book span:hover {
+    transform: rotate(90deg);
+    transition: 1s;
+}
+
+#library-display div p:first-child {
+    /* background-color: tomato; */
+    margin-left: 0;
+    margin-top: 10px;
+    font-size: 25px;
+    text-align: center;
+}
+
+#library-display div button {
+    background-color: #2e2e2e;
+    color: #b6b6b6;
+    border: none;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
+
+#library-display div button:first-child {
+    border-radius: 0px 0px 0px 10px;
+}
+#library-display div button:last-child {
+    border-radius: 0px 0px 10px 0px;
+}
+
+#library-display div button:hover {
+    background-color: #272727;
+    font-size: 15px;
+    color: #dbdbdb;
 }
 
 form {
     display: none;
     /* display: flex; */
     flex-direction: column;
-    background-color: bisque;
+    background-color: #141414;
+    color: #cacaca;
     justify-content: space-between;
-    position: absolute;
-    top: 0;
+    border-radius: 25px;
+    position: fixed;
+    top: 130px;
     right: 0;
     bottom: 0;
-    left: 0;
+    left: 300px;
     margin: auto;
     width: 200px;
-    height: 350px;
+    height: 400px;
+    padding: 30px;
+    backdrop-filter: blur(3px);
+    z-index: 1;
+    box-shadow: 4px 4px 20px 4px #494949a6, 
+    -4px -4px 20px 4px #494949a6;
 }
+
+input, select{
+    border-radius: 3px;
+    border: none;
+    height: 25px;
+    font-size: 16px;
+}
+
+form div input {
+    width: 193px;
+}
+
+form .inline {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+form .inline input, form div select{
+    width: 125px;
+}
+
+form h3 {
+    margin: 0;
+}
+
+form button {
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    align-self: center;
+    border: none;
+    background-color: #141414;
+    color: #cacaca;
+    box-shadow: 3px 3px 6px 1px #000000, -3px -3px 6px 1px #373737b0;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #181818;
+}
+
+#blur {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(4px);
+    opacity: 1;
+}
+  
+
+.valid-text {
+    color: #a04949;
+    margin: 0;
+}
+
 
 form span {
     display: none;
 }
 
-#book-info {
-    order: 1;
-}
+
+
+.side-bar .diveloper a {
+    color: #8d8d8d;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 10px;
+  }
