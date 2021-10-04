@@ -112,7 +112,6 @@ button {
     height: 260px;
     border-radius: 10px;
     font-size: 150px;
-    
 }
 
 #library-display #add-book span {
@@ -243,7 +242,7 @@ form span {
     text-decoration: none;
     font-size: 16px;
     margin-top: 10px;
-  }
+}
 
 @media only screen and (max-width: 700px) {
 
@@ -252,7 +251,6 @@ form span {
         font-size: 40px;
         display: flex;
         justify-content: space-between;
-        
     }
 
     h1 span {
@@ -291,5 +289,4 @@ form span {
     form {
         left: 0;
     }
-
 }
