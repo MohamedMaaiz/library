@@ -23,11 +23,20 @@ let myLibrary = [{
 getLocal()
 displayBooks()
 
-function Book(title, authour, pages, status) {
-    this.title = title
-    this.authour = authour
-    this.pages = pages
-    this.status = status
+// function Book(title, authour, pages, status) {
+//     this.title = title
+//     this.authour = authour
+//     this.pages = pages
+//     this.status = status
+// }
+
+class Book{
+    constructor(title, authour, pages, status) {
+        this.title = title
+        this.authour = authour
+        this.pages = pages
+        this.status = status
+    }
 }
 
 function addBookToLibrary(title, authour, pages, status) {
