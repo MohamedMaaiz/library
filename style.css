@@ -1,16 +1,82 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Noto+Sans&family=Noto+Serif&display=swap');
 
+:root {
+    --background-color: #e0e5ec;
+    --background-color-header: #f5f5f5;
+    --background-color-sidbar: #f2f8ff;
+    --background-color-card: #d8dde4;
+    --background-color-addbook: #d0d1d4bb;
+    --background-color-card-button: #e2eaf3;
+    --background-color-card-button-hover: #272727;
+    --background-color-form: #e0e5ec;
+    --background-color-form-button-hover: #d9dce0;
+    --text-color-header: #2a2a2a;
+    --text-color-main: #2c2c2c;
+    --text-color-sidbar_button: #363636;
+    --text-color-card-button-hover: #1f1f1f;
+    --box-shadow: 2px 4px 5px 0px #b2b2b299,0px -1px 7px 2px #f4f4f4;
+    --box-shadow-card: 4px 4px 8px 3px #b2b2b299, -5px -5px 10px 4px #f4f4f4;
+    --box-shadow-form: 4px 4px 20px 4px #bbbbbba6, 
+    -4px -4px 20px 4px #a2a2a2a6;
+    --box-shadow-form-button: 0px -1px 7px 2px #c0bfbf99,3px 4px 5px 1px #f4f4f4;
+    --svg-color: invert(0);
+}
+
+html[data-theme='light'] {
+    --background-color: #e0e5ec;
+    --background-color-header: #f5f5f5;
+    --background-color-sidbar: #f2f8ff;
+    --background-color-card: #d8dde4;
+    --background-color-addbook: #d0d1d4bb;
+    --background-color-card-button: #e2eaf3;
+    --background-color-card-button-hover: #d8dde4;
+    --background-color-form: #e0e5ec;
+    --background-color-form-button-hover: #d9dce0;
+    --text-color-header: #2a2a2a;
+    --text-color-main: #2c2c2c;
+    --text-color-sidbar_button: #363636;
+    --text-color-card-button-hover: #1f1f1f;
+    --box-shadow: 2px 4px 5px 0px #b2b2b299,0px -1px 7px 2px #f4f4f4;
+    --box-shadow-card: 4px 4px 8px 3px #b2b2b299, -5px -5px 10px 4px #f4f4f4;
+    --box-shadow-form: 4px 4px 20px 4px #bbbbbba6, 
+    -4px -4px 20px 4px #a2a2a2a6;
+    --box-shadow-form-button: 0px -1px 7px 2px #c0bfbf99,3px 4px 5px 1px #f4f4f4;
+    --svg-color: invert(0);
+}
+
+html[data-theme='dark'] {
+    --background-color: #262729;
+    --background-color-header: #1b1a1a;
+    --background-color-sidbar: #000000;
+    --background-color-card: #252525;
+    --background-color-addbook: #313131bb;
+    --background-color-card-button: #2e2e2e;
+    --background-color-card-button-hover: #272727;
+    --background-color-form: #141414;
+    --background-color-form-button-hover: #181818;
+    --text-color-header: #e4e4e4;
+    --text-color-main: #cacaca;
+    --text-color-sidbar_button: #b6b6b6;
+    --text-color-card-button-hover: #dbdbdb;
+    --box-shadow: 2px 4px 5px 0px #141414,0px -1px 7px 2px #373737b0;
+    --box-shadow-card: 4px 4px 8px 3px #000000, -5px -5px 10px 4px #373737b0;
+    --box-shadow-form: 4px 4px 20px 4px #494949a6, 
+    -4px -4px 20px 4px #494949a6;
+    --box-shadow-form-button: 3px 3px 6px 1px #000000, -3px -3px 6px 1px #373737b0;
+    --svg-color: invert(1);
+}
+
 body {
     display: flex;
     flex-direction: column;
     margin: 0;
-    background-color: #1e1e1e;
+    background-color: var(--background-color);
     font-family: 'Noto Serif', serif;
 }
 
 h1 {
-    background-color: #141414;
-    color: #e4e4e4;
+    background-color: var(--background-color-header);
+    color: var(--text-color-header);
     font-family: 'Cinzel Decorative', cursive;
     font-size: 50px;
     position: fixed;
@@ -32,7 +98,7 @@ h1 {
 }
 
 .side-bar {
-    background-color: black;
+    background-color: var(--background-color-sidbar);
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -44,10 +110,28 @@ h1 {
     padding: 20px 0;
 }
 
+#theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color-sidbar);
+    height: 45px;
+    width: 45px;
+    padding: 0;
+    border: none;
+    box-shadow: var(--box-shadow);
+    border-radius: 8px;
+}
+
+#sun {
+    filter: var(--svg-color);
+    width: 20px;
+}
+
 .library-info {
     display: flex;
     flex-direction: column;
-    color: #b6b6b6;
+    color: var(--text-color-sidbar_button);
     width: 200px;
     margin-top: 30px;
     font-size: 20px;
@@ -76,9 +160,9 @@ button {
 }
 
 #library-display div {
-    background-color: #202020;
-    box-shadow: 4px 4px 8px 3px #000000, -5px -5px 10px 4px #373737b0;
-    color: #cacaca;
+    background-color: var(--background-color-card);
+    box-shadow: var(--box-shadow-card);
+    color: var(--text-color-main);
     margin: 40px 30px;
     width: 200px;
     height: 260px;
@@ -102,10 +186,10 @@ button {
 }
 
 #library-display #add-book {
-    background-color: #313131bb;
+    background-color: var(--background-color-addbook);
     border: none;
-    box-shadow: 4px 4px 8px 3px #000000, -5px -5px 10px 4px #373737b0;
-    color: #cacaca;
+    box-shadow: var(--box-shadow-card);
+    color: var(--text-color-main);
     order: 1;
     margin: 40px 30px;
     width: 200px;
@@ -133,8 +217,8 @@ button {
 }
 
 #library-display div button {
-    background-color: #2e2e2e;
-    color: #b6b6b6;
+    background-color: var(--background-color-card-button);
+    color: var(--text-color-sidbar_button);
     border: none;
     width: 100px;
     height: 30px;
@@ -148,16 +232,16 @@ button {
 }
 
 #library-display div button:hover {
-    background-color: #272727;
+    background-color: var(--background-color-card-button-hover);
     font-size: 15px;
-    color: #dbdbdb;
+    color: var(--text-color-card-button-hover);
 }
 
 form {
     display: none;
     flex-direction: column;
-    background-color: #141414;
-    color: #cacaca;
+    background-color: var(--background-color-form);
+    color: var(--text-color-main);
     justify-content: space-between;
     border-radius: 25px;
     position: fixed;
@@ -171,8 +255,7 @@ form {
     padding: 30px;
     backdrop-filter: blur(3px);
     z-index: 1;
-    box-shadow: 4px 4px 20px 4px #494949a6, 
-    -4px -4px 20px 4px #494949a6;
+    box-shadow: var(--box-shadow-form);
 }
 
 input, select{
@@ -206,13 +289,13 @@ form button {
     height: 30px;
     align-self: center;
     border: none;
-    background-color: #141414;
-    color: #cacaca;
-    box-shadow: 3px 3px 6px 1px #000000, -3px -3px 6px 1px #373737b0;
+    background-color: var(--background-color-form);
+    color: var(--text-color-main);
+    box-shadow: var(--box-shadow-form-button);
 }
 
 form button:hover {
-    background-color: #181818;
+    background-color: var(--background-color-form-button-hover);
 }
 
 #blur {
@@ -227,7 +310,7 @@ form button:hover {
 }
 
 .valid-text {
-    color: #a04949;
+    color: #af4848;
     margin: 0;
 }
 
@@ -236,7 +319,7 @@ form span {
 }
 
 .side-bar .diveloper a {
-    color: #8d8d8d;
+    color: #8b8b8b7e;
     display: block;
     text-align: center;
     text-decoration: none;

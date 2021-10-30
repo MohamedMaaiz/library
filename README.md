@@ -14,3 +14,5 @@ Check the website: [Live preview](https://mohamedmaaiz.github.io/library/)
 - Can remove a book anytime
 - All the infomation of the books are editable anytime
 - All your data will be saved locally in your browser
+- Build in dark and light theme
+- Selected theme will be saved inside the browsers lockal data
